@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model booking {
+  id                  Int                   @id @default(autoincrement())
+  date                DateTime              @db.DateTime(0)
+  description         String                @db.Text
+  status              booking_status        @default(PENDING)
+  user_id             Int
+  user                user                  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_booking_user")
+  booking_has_service booking_has_service[]
+
+  @@index([user_id], map: "fk_booking_user_idx")
+}
+
+model booking_has_service {
+  booking_id Int
+  service_id Int
+  booking    booking @relation(fields: [booking_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_booking_has_service_booking1")
+  service    service @relation(fields: [service_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_booking_has_service_service1")
+
+  @@id([booking_id, service_id])
+  @@index([booking_id], map: "fk_booking_has_service_booking1_idx")
+  @@index([service_id], map: "fk_booking_has_service_service1_idx")
+}
+
+model service {
+  id                  Int                   @id @default(autoincrement())
+  name                String                @unique(map: "name_UNIQUE") @db.VarChar(45)
+  price               Int
+  booking_has_service booking_has_service[]
+}
+
+model user {
+  id          Int            @id @default(autoincrement())
+  first_name  String         @db.VarChar(45)
+  last_name   String         @db.VarChar(45)
+  address     String         @db.VarChar(45)
+  postal_code String         @db.VarChar(45)
+  cell_phone  String         @unique(map: "cell_phone_UNIQUE") @db.VarChar(15)
+  user_type   user_user_type @default(PERSON)
+  booking     booking[]
+}
+
+enum booking_status {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+enum user_user_type {
+  PERSON
+  COMPANY
+}
