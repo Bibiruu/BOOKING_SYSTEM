@@ -2,8 +2,11 @@ import express from 'express'
 import routes from './routes.js'
 
 const app = express()
-const port = 3000
 
+//parsing the data for us 
+app.use(express.json())
+
+const port = 3000
 
 
 app.use(routes) 

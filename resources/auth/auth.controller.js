@@ -5,3 +5,8 @@ import db from '../../utils/db.js'
 export const login = async (req, res) => { 
     res.send('Hello World!')
   }
+
+export const register = async (req, res) => { 
+    // console.log(req.body)
+    res.send('Hello World!')
+  }

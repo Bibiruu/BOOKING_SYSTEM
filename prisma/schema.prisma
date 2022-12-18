@@ -37,6 +37,7 @@ model service {
   booking_has_service booking_has_service[]
 }
 
+//using this for authentication
 model user {
   id          Int            @id @default(autoincrement())
   first_name  String         @db.VarChar(45)
