@@ -5,8 +5,8 @@ import jwt from 'jsonwebtoken'
 
 // http://localhost:3000/auth/login
 export const login = async (req, res) => { 
-
-    try {
+  
+  try {
       const userExist = await findUserByEmail(req.body.email)
       if (!userExist) {
         return res.status(401).json({
@@ -15,6 +15,7 @@ export const login = async (req, res) => {
           message: "Wrong credentials"
         }) 
       }
+      //comparing the userpassword to the hashed one
       const passwordResult = await bcrypt.compare(req.body.password, userExist.password)
       if (!passwordResult) {
         return res.status(401).json({
@@ -23,6 +24,7 @@ export const login = async (req, res) => {
           message: "Wrong credentials"
         }) 
       }
+      //separating the password from the rest
       const { password , ...userProps } = userExist
       const token = jwt.sign ({ user : userProps }, process.env.TOKEN_KEY, { expiresIn: "1h"})
       res.status(200).json({

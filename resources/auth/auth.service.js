@@ -10,8 +10,8 @@ export function findUserByEmail(email) {
 }
 
 export async function registerUser(userData) {
-    // hashing password 10 times
     const { password , ...profileData } = userData
+    // hashing password 10 times
     const hashPassword = await bcrypt.hash(password, 10)
     console.log(hashPassword)
     return db.user.create({ 
