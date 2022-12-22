@@ -37,7 +37,6 @@ model service {
   booking_has_service booking_has_service[]
 }
 
-//using this for authentication
 model user {
   id          Int            @id @default(autoincrement())
   first_name  String         @db.VarChar(45)
@@ -46,6 +45,8 @@ model user {
   postal_code String         @db.VarChar(45)
   cell_phone  String         @unique(map: "cell_phone_UNIQUE") @db.VarChar(15)
   user_type   user_user_type @default(PERSON)
+  email       String         @unique(map: "email_UNIQUE") @db.VarChar(100)
+  password    String         @db.VarChar(100)
   booking     booking[]
 }
 
