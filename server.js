@@ -8,7 +8,6 @@ app.use(express.json())
 
 const port = 3000
 
-
 app.use(routes) 
 
 app.listen(port, () => {
