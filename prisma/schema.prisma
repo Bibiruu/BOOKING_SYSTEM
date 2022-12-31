@@ -22,6 +22,7 @@ model booking {
 model booking_has_service {
   booking_id Int
   service_id Int
+  quantity   Int     @default(1)
   booking    booking @relation(fields: [booking_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_booking_has_service_booking1")
   service    service @relation(fields: [service_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_booking_has_service_service1")
 

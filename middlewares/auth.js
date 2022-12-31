@@ -3,7 +3,7 @@ import { findUserByEmail } from '../resources/auth/auth.service.js'
 
 export default function (req, res, next) {
     const authHeader = req.headers['authorization']
-    //Extracting the tokenn & bearer authentication. Splitting the bearer from token on index 1.
+    //Extracting the token & bearer authentication. Splitting the bearer from token on index 1.
     const token = authHeader && authHeader.split(' ')[1]
         if (!token) {
             return res.status(401).json({
@@ -15,7 +15,7 @@ export default function (req, res, next) {
              if (error) {      
                 return res.status(403).json({
                     success: false,
-                    response: "Error"
+                    response: error
                 })
              }
              //taking the user 
