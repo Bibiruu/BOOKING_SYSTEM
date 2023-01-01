@@ -38,16 +38,18 @@ export const postBooking = async (req, res) => {
     }
 }
 
-export const getSingleBooking =  async (req, res) => {
+export const getSingleBooking =  async (req, res, next) => {
     try {
-        const bookingId = req.params.id
-        console.log(bookingId)
-        const bookings = await fetchBookings.findById(bookingId)
-        res.status(200).json({
-            success: true,
-            data: bookings,
-            message: "Success fetching bookings"
-        })
+        const id = req.params.id
+        console.log({ id })
+        const booking = await fetchBookings()
+        const singleBooking = booking.filter((item) => item.user_id)      
+            res.status(200).json({
+                success: true,
+                data: singleBooking,
+                message: "Success fetching a single booking"
+            })
+        
     } catch (error) {
         console.log(error)
         return res.status(500).json({
