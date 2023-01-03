@@ -15,6 +15,22 @@ export function fetchBookings(userid) {
     })
 }
 
+export function fetchSingleBooking(userid, id) {
+    return db.booking.findFirst({
+        where: {
+            user_id: userid,
+            id
+        },
+        include: {
+            booking_has_service:{
+                select: {
+                    service: true
+                }
+            }
+        }
+    })
+}
+
 export async function createBooking(bookingData, user) {
     const { services, date, ...otherBookingData } = bookingData
     console.log(new Date(+date))
