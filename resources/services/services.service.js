@@ -1,5 +1,5 @@
-import db from '../../utils/db.js'
+import db from "../../utils/db.js";
 
 export function fetchServices() {
-    return db.service.findMany()
+  return db.service.findMany();
 }

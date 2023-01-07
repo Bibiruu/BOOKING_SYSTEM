@@ -1,4 +1,8 @@
-import {fetchBookings, fetchSingleBooking, createBooking} from "./booking.service.js";
+import {
+  fetchBookings,
+  fetchSingleBooking,
+  createBooking,
+} from "./booking.service.js";
 
 export const getBookings = async (req, res, next) => {
   try {
@@ -43,7 +47,7 @@ export const getSingleBooking = async (req, res, next) => {
     const id = +req.params.id;
     // console.log({ id });
     const booking = await fetchSingleBooking(req.user.id, id);
-    res.status(booking?200:404).json({
+    res.status(booking ? 200 : 404).json({
       success: true,
       data: booking,
       message: "Success fetching a single booking",
