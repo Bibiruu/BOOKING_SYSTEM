@@ -1,6 +1,6 @@
 import db from "../../utils/db.js";
 
-export function fetchBookings(userid) {
+export const fetchBookings = (userid) => {
   return db.booking.findMany({
     where: {
       user_id: userid,
@@ -15,7 +15,7 @@ export function fetchBookings(userid) {
   });
 }
 
-export function fetchSingleBooking(userid, id) {
+export const fetchSingleBooking = (userid, id) => {
   return db.booking.findFirst({
     where: {
       user_id: userid,
@@ -31,7 +31,7 @@ export function fetchSingleBooking(userid, id) {
   });
 }
 
-export async function createBooking(bookingData, user) {
+export const createBooking = async (bookingData, user) => {
   const { services, date, ...otherBookingData } = bookingData;
   console.log(new Date(+date));
   const createdBooking = await db.booking.create({

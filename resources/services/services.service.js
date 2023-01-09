@@ -1,5 +1,5 @@
 import db from "../../utils/db.js";
 
-export function fetchServices() {
+export const fetchServices = () => {
   return db.service.findMany();
 }
