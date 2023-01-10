@@ -9,6 +9,7 @@ export const fetchBookings = (userid) => {
       booking_has_service: {
         select: {
           service: true,
+          quantity: true
         },
       },
     },
