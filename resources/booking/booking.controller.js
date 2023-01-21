@@ -42,7 +42,7 @@ export const postBooking = async (req, res) => {
   }
 };
 
-export const getSingleBooking = async (req, res, next) => {
+export const getSingleBooking = async (req, res) => {
   try {
     const id = +req.params.id;
     // console.log({ id });

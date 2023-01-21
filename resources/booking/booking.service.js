@@ -34,12 +34,12 @@ export const fetchSingleBooking = (userid, id) => {
 
 export const createBooking = async (bookingData, user) => {
   const { services, date, ...otherBookingData } = bookingData;
-  console.log(new Date(+date));
+  //console.log(new Date(+date));
   const createdBooking = await db.booking.create({
     data: {
       ...otherBookingData,
       user_id: user.id,
-      date: new Date(+date),
+      date: new Date(date),
     },
   });
   const addedServices = await db.booking_has_service.createMany({

@@ -13,6 +13,7 @@ model booking {
   description         String                @db.Text
   status              booking_status        @default(PENDING)
   user_id             Int
+  address             String                @db.VarChar(255)
   user                user                  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_booking_user")
   booking_has_service booking_has_service[]
 
