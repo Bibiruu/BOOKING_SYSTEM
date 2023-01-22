@@ -57,9 +57,9 @@ Configuring the project to your local machine:
 
 -Open your terminal and make sure you are in the backend folder.
 Then run these commands in the terminal in the exact order:
-1. npm install
-2. npm prisma-generate 
-3. npm run dev
+1. ### `npm install`
+2. ### `npm prisma-generate` 
+3. ### `npm run dev
 
 Enjoy :)
 
