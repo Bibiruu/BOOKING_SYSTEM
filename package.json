@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "test": "jest"
+    "prisma-generate":"prisma generate"
   },
   "keywords": [],
   "author": "",
