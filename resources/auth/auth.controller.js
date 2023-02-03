@@ -68,7 +68,7 @@ export const register = async (req, res) => {
     console.log(error);
     res.status(500).json({
       success: false,
-      data: null,
+      data: error,
       message: "Sorry, error in server",
     });
   }
