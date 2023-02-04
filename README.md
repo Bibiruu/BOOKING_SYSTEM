@@ -7,6 +7,7 @@ Stacks used:
 Frontend: React, JSX, 
 Backend: Axios, Node.js
 Database/ handling: MYSQL, Prisma.js
+Cloud: Azure Cloud
 Design: UI / Antdesign, CSS
 
 *Responsive design. 
@@ -47,19 +48,13 @@ Work flow: Database creation => Backend => Frontend
 -Creating a work flow for the backend and building it systematically.
 -Working with a UI
 
-Configuring the project to your local machine:
 
--Download mySQL workbench.
--Create a .env file and add a environmental variable called DATABASE_URL and TOKEN_KEY.
--Connect your mySQL connection string with the environmental variable like this:
--DATABASE_URL = (your connection string) and
--TOKEN_KEY = Some type of password
+#View it live
 
--Open your terminal and make sure you are in the backend folder.
-Then run these commands in the terminal in the exact order:
-1. ### `npm install`
-2. ### `npm prisma-generate` 
-3. ### `npm run dev`
+Front end: https://project-booking-system.netlify.app
+Back end: https://prod-booking-system.azurewebsites.net/auth/register
+
+
 
 Enjoy :)
 
