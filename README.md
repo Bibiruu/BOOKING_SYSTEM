@@ -31,6 +31,11 @@ Implementation:
 * Lastly having attention to details in cleaning the console log out of small red errors and matching the userinterface id names to exactly to the      standard of  backend id's for bug prevention.
 *Runing the code lastly to detect/observe the flow of the application
 
+*Cloud deployment through azure and connecting the mySQL database into the cloud*
+*Zipping my file in github to have faster deployment
+
+
+
 ____________
 
 Next step is to add more features and turn JSX into Typescript for bug prevention efficiancy and to turn this into a overall cutting-edge code. =)
@@ -46,6 +51,7 @@ Work flow: Database creation => Backend => Frontend
 -Learned thorough planning in a team where client interaction and  customer service played a vital role.  
 -How to build easily readable, clean and scalable code with attention to detail.
 -Creating a work flow for the backend and building it systematically.
+-Azure cloud deployment with the existing database.
 -Working with a UI
 
 
